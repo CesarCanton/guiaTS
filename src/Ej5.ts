@@ -22,9 +22,9 @@ abstract class Persona {
 		return this.edad >= 18 ? "Es mayor de edad" : "Es menor de edad";
 	}
 	mostrarDatosPersonales() {
-		return `Nombre: ${this.nombre} ${this.apellido},
-         Edad: ${this.edad},
-        Dirección: ${this.direccion},
+		return `         Nombre: ${this.nombre} ${this.apellido},
+         Edad: ${this.edad} (${this.mayorEdad()}),
+         Dirección: ${this.direccion},
          Teléfono: ${this.telefono}`;
 	}
 }
@@ -38,19 +38,19 @@ export class Empleado extends Persona {
 		edad: number,
 		direccion: string,
 		telefono: string,
-		salario: number
+		
 	) {
 		super(nombre, apellido, edad, direccion, telefono);
-		this.salario = salario;
+		this.salario = 0;
 	}
 
-	mostrarDatos(): string {
-		return `Empleado: ${this.nombre} ${this.apellido}, Edad: ${this.edad}, Salario: $${this.salario}`;
-	}
+	mostrarDatosPersonales(): string {
+        return `${super.mostrarDatosPersonales()}`;
+    }
 	cargarSueldo(sueldo: number): void {
 		this.salario += sueldo;
 	}
 	imprimirSueldo(): string {
-		return `El sueldo de ${this.nombre} ${this.apellido} es: $${this.salario}`;
+		return `El sueldo es de: $${this.salario}`;
 	}
 }

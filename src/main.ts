@@ -4,7 +4,7 @@ import { Cancion } from "./Ej3";
 import { Cuenta } from "./Ej4";
 import { Empleado } from "./Ej5";
 import "./style.css";
-let titulo: string = "";
+
 function tituloEjercicio(titulo: string) {
 	console.log(`\n\nEjercicio: ${titulo}`);
 }
@@ -56,9 +56,8 @@ console.log(Ej4.mostrarDatos());
 
 //ejercicio 5
 tituloEjercicio("5. Clase Persona");
-const Ej5 = new Empleado("Ana", "Gómez", 30, "Calle Falsa 123", "5555-1234", 3000);
-console.log(`Empleado:${Ej5.nombre} ${Ej5.apellido}, ${Ej5.mayorEdad()} con una edad de ${Ej5.edad} años.
-Direccion: ${Ej5.direccion}, 
-Telefono: ${Ej5.telefono},
-Salario: $${Ej5.salario}
+const Ej5 = new Empleado("Ana", "Gómez", 30, "Calle Falsa 123", "5555-1234");
+Ej5.cargarSueldo(500);
+console.log(`${Ej5.mostrarDatosPersonales()} 
+         ${Ej5.imprimirSueldo()}
   `)
